@@ -18,7 +18,7 @@
     1. Create/modify/remove provider profile - register as a teacher.
     2. Create services - create classes.
     3. View customer statistics -  view class list.
-    4. Reply to reviews - comment on evalations.
+    4. Reply to reviews - comment on evaluations.
 3. SysAdmin (Registrar):
     1. Manage user access - Suspend students/dismiss teachers.
     2. Moderate services - moderate classes.
