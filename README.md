@@ -1,5 +1,3 @@
-# su25-team0
-Demo project - Summer 2025
 ## Title
 > Class Connect - Bringing Teachers and Students Together Seamlessly
 
