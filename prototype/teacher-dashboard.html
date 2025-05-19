@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard - Class Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>My Classes</h1>
+            <button class="create-class-btn" onclick="createClass()">+ Create New Class</button>
+        </div>
+        <div id="classesList" class="classes-grid">
+            <!-- Example class cards (replace with dynamic content) -->
+            <div class="class-card">
+                <div class="class-title">Algebra I - Period 2</div>
+                <div class="class-info">Room 204 &middot; 28 students</div>
+            </div>
+            <div class="class-card">
+                <div class="class-title">Biology Honors</div>
+                <div class="class-info">Room 105 &middot; 31 students</div>
+            </div>
+            <div class="class-card">
+                <div class="class-title">World History</div>
+                <div class="class-info">Room 301 &middot; 26 students</div>
+            </div>
+            <!-- If no classes, show empty state -->
+            <!-- <div class="empty-state">You have not created any classes yet.</div> -->
+        </div>
+    </div>
+    <script>
+        function createClass() {
+            alert('Redirect to create class form (to be implemented)');
+            // window.location.href = '/create-class.html';
+        }
+        // For dynamic loading, fetch classes and render cards here
+    </script>
+</body>
+</html>
