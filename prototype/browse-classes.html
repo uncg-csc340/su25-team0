@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Browse Classes - Class Connect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+
+    header {
+      background: #2d5be3;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filters input,
+    .filters select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .class-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .class-item {
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+
+    .class-item:last-child {
+      border-bottom: none;
+    }
+
+    .class-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 0 0.3rem 0;
+    }
+
+    .class-subject {
+      color: #2d6cdf;
+      font-size: 0.95rem;
+    }
+
+    .class-actions {
+      margin-top: auto;
+    }
+
+    .class-actions button {
+      background: #2d5be3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .class-actions button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .filters {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Class Connect</div>
+    <nav>
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="#">Assignments</a>
+      <a href="#">Reports</a>
+      <a href="student-profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search by keyword...">
+      <select id="subjectFilter">
+        <option value="">All Subjects</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="Biology">Biology</option>
+        <option value="History">History</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Art">Art</option>
+      </select>
+    </div>
+    <ul class="class-list" id="classList">
+      <!-- Classes will be rendered here -->
+    </ul>
+  </div>
+  <script>
+    // Example class data
+    const classes = [
+      { title: "Calculus I", subject: "Mathematics", description: "Introduction to differential and integral calculus." },
+      { title: "Modern Art", subject: "Art", description: "Explore the evolution of modern art." },
+      { title: "Intro to Biology", subject: "Biology", description: "Fundamentals of cell biology and genetics." },
+      { title: "World History", subject: "History", description: "A survey of world civilizations and events." },
+      { title: "Programming Basics", subject: "Computer Science", description: "Learn the basics of programming in Python." },
+      { title: "Genetics", subject: "Biology", description: "Study of genes, heredity, and genetic variation." },
+      { title: "Data Structures", subject: "Computer Science", description: "Learn about data structures and algorithms." },
+      { title: "Art History", subject: "Art", description: "A survey of art history from ancient to modern times." },
+      { title: "Statistics", subject: "Mathematics", description: "Introduction to statistical methods and analysis." },
+      { title: "Chemistry 101", subject: "Biology", description: "Basic principles of chemistry and their applications." }
+    ];
+
+    const classList = document.getElementById('classList');
+    const searchInput = document.getElementById('searchInput');
+    const subjectFilter = document.getElementById('subjectFilter');
+
+    function renderClasses(filtered) {
+      classList.innerHTML = '';
+      if (filtered.length === 0) {
+        classList.innerHTML = '<li>No classes found.</li>';
+        return;
+      }
+      filtered.forEach(cls => {
+        const li = document.createElement('li');
+        li.className = 'class-item';
+        li.innerHTML = `
+          <div style="background:#f4f8ff; border-radius:8px; box-shadow:0 1px 4px rgba(45,108,223,0.07); padding:1.2rem 1rem; margin-bottom:0.5rem;">
+            <div class="class-title">${cls.title}</div>
+            <div class="class-subject">${cls.subject}</div>
+            <div class="class-desc" style="color:#444; margin-top:0.5rem;">${cls.description}</div>
+           <div class="class-actions">
+            <button onclick="window.location.href='student-browse-class-details.html'">View</button>
+ </div>
+            </div>
+        `;
+        classList.appendChild(li);
+      });
+    }
+
+    function filterClasses() {
+      const keyword = searchInput.value.toLowerCase();
+      const subject = subjectFilter.value;
+      const filtered = classes.filter(cls => {
+        const matchesSubject = !subject || cls.subject === subject;
+        const matchesKeyword = !keyword ||
+          cls.title.toLowerCase().includes(keyword) ||
+          cls.description.toLowerCase().includes(keyword);
+        return matchesSubject && matchesKeyword;
+      });
+      renderClasses(filtered);
+    }
+
+    searchInput.addEventListener('input', filterClasses);
+    subjectFilter.addEventListener('change', filterClasses);
+
+    // Initial render
+    renderClasses(classes);
+  </script>
+</body>
+
+</html>
