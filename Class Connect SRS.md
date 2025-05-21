@@ -1,10 +1,10 @@
 # Software Requirements Specification
-## For <project name>
+## For Class Connect
 
 Version 0.1  
-Prepared by <author>  
-<organization>  
-<date created>  
+Prepared by Alice Beback & Bobby M  
+CSC340  
+May 25, 2025 
 
 Table of Contents
 =================
@@ -49,7 +49,7 @@ Table of Contents
 ## Revision History
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
+|  Ali | 5/25    | Initial SRS         |    1.0    |
 |      |         |                     |           |
 |      |         |                     |           |
 
@@ -57,15 +57,17 @@ Table of Contents
 > This section should provide an overview of the entire document
 
 ### 1.1 Document Purpose
-Describe the purpose of the SRS and its intended audience.
+The purpose of this Software Requirements Document (SRD) is to describe the client-view and developer-view requirements for the Class Connect application.  
+Client-oriented requirements describe the system from the client’s perspective.  These requirements include a description of the different types of users served by the system.  
+Developer-oriented requirements describe the system from a software developer’s perspective.  These requirements include a detailed description of functional, data, performance, and other important requirements.
 
 ### 1.2 Product Scope
-Identify the product whose software requirements are specified in this document, including the revision or release number. Explain what the product that is covered by this SRS will do, particularly if this SRS describes only part of the system or a single subsystem. Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+The purpose of the Class Connect system is to ease class management and to create a convenient and easy-to-use application for students, trying to register for classes. The system is based on a relational database with its class management and registration functions. We will have a database server supporting teachers of different subjects. Above all, we hope to provide a comfortable user experience along with the best offerings available.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 
 ### 1.4 References
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+https://spring.io/guides
 
 ### 1.5 Document Overview
 Describe what the rest of the document contains and how it is organized.
