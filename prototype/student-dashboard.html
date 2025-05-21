@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      margin: 0;
+    }
+
+    header {
+      background: #2d5be3;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    button {
+      background-color: #2d6cdf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="logo">Class Connect</div>
+    <nav>
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="#">Assignments</a>
+      <a href="#">Reports</a>
+      <a href="student-profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Welcome, Johnny!</h1>
+    <section>
+      <h2>Your Classes</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;"></div>
+      <div
+        style="background: #f0f4fa; border-radius: 8px; padding: 1rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); flex: 1 1 150px; min-width: 150px;">
+        <strong>Math 101</strong><br>
+        <span style="color:#555;">Introduction to Algebra</span>
+      </div>
+      <div
+        style="background: #f0f4fa; border-radius: 8px; padding: 1rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); flex: 1 1 150px; min-width: 150px;">
+        <strong>English 201</strong><br>
+        <span style="color:#555;">Literature and Composition</span>
+      </div>
+      <div
+        style="background: #f0f4fa; border-radius: 8px; padding: 1rem 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); flex: 1 1 150px; min-width: 150px;">
+        <strong>Biology 110</strong><br>
+        <span style="color:#555;">General Biology</span>
+      </div>
+  </div>
+  </section>
+  <section style="margin-top:2rem;">
+    <h2>Upcoming Assignments</h2>
+    <table style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr style="background:#f0f4fa;">
+          <th style="text-align:left; padding:8px;">Assignment</th>
+          <th style="text-align:left; padding:8px;">Class</th>
+          <th style="text-align:left; padding:8px;">Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px;">Homework 1</td>
+          <td style="padding:8px;">Math 101</td>
+          <td style="padding:8px;">May 22, 2025</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Essay Draft</td>
+          <td style="padding:8px;">English 201</td>
+          <td style="padding:8px;">May 24, 2025</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Lab Report</td>
+          <td style="padding:8px;">Biology 110</td>
+          <td style="padding:8px;">May 25, 2025</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  </div>
+</body>
+
+</html>

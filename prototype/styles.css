@@ -1,0 +1,245 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f8fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2d6cdf;
+    color: #fff;
+    padding: 2rem 0 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(45, 108, 223, 0.08);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 1rem 0 0 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 700px;
+    margin: 2.5rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(45, 108, 223, 0.07);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background: #2d6cdf;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.cta-btn:hover {
+    background: #1e4fa3;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.2rem 0.5rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+.container {
+    max-width: 350px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #0078d4;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+.signup-form {
+    background: #fff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.signup-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.signup-form input,
+.signup-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 10px;
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background: #005fa3;
+}
+
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #2d3a4b;
+}
+
+.create-class-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.create-class-btn:hover {
+    background: #1e40af;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.class-card {
+    background: #f9fafb;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 5px solid #2563eb;
+    transition: box-shadow 0.2s;
+}
+
+.class-card:hover {
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}
+
+.class-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+.class-info {
+    color: #64748b;
+    font-size: 0.97rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: #64748b;
+    margin-top: 40px;
+    font-size: 1.1rem;
+}

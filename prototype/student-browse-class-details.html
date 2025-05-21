@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Class Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      background: #f9f9f9;
+    }
+     header {
+      background: #2d5be3;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+    }
+
+    .container {
+      background: #fff;
+      padding: 24px 32px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .details, .teacher {
+      margin-bottom: 24px;
+    }
+    .details span, .teacher span {
+      display: inline-block;
+      min-width: 120px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 8px;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    .grade {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <div class="logo">Class Connect</div>
+    <nav>
+      <a href="student-dashboard.html">Dashboard</a>
+      <a href="#">Assignments</a>
+      <a href="student-profile.html">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Class Details</h1>
+    <div class="details">
+      <div><span>Class Name:</span> Introduction to Computer Science</div>
+      <div><span>Class Code:</span> CSC 101</div>
+      <div><span>Semester:</span> Summer 2025</div>
+      <div><span>Schedule:</span> Mon & Wed, 10:00 AM - 11:30 AM</div>
+      <div><span>Location:</span> Room 204, Science Building</div>
+    </div>
+    <div class="teacher">
+      <h2>Teacher</h2>
+      <div><span>Name:</span> Dr. Jane Smith</div>
+      <div><span>Email:</span> jane.smith@uncg.edu</div>
+      <div><span>Office Hours:</span> Tue 2:00 PM - 4:00 PM</div>
+    </div>
+    <button
+      style="background: green; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; font-size: 1rem; cursor: pointer;"
+      onclick="window.location.href='student-profile.html';"
+    >Register for Class</button>
+  </div>
+</body>
+</html>
