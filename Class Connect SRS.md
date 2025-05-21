@@ -120,17 +120,17 @@ Devices that have web browser capabilities.
 - NFR2: The expert user will be able to add and manage classes in less than 1 minute.
 
 #### 3.2.2 Security
-The system is going to be available only to authorized users, using their username and password.
+- NFR3: The system is going to be available only to authorized users, using their username and password.
 
 #### 3.2.3 Reliability
 
 #### 3.2.4 Availability
-Class Connect will be available 24/7. Scheduled Maintenance should be initialized during scheduled low activity hours such as federal holidays to minimize conflict with user’s using the app.
+- NFR4: Class Connect will be available 24/7. Scheduled Maintenance should be initialized during scheduled low activity hours such as federal holidays to minimize conflict with user’s using the app.
 
 #### 3.2.5 Compliance
 
 #### 3.2.6 Cost
-We expect to spend zero dollars on this project. 
+- NFR5: We expect to spend zero dollars on this project. 
 
 #### 3.2.7 Deadline
-The final product must be delivered on June 18th.
+- NFR6: The final product must be delivered on June 18th.
