@@ -71,10 +71,10 @@ The purpose of the Class Connect system is to ease class management and to creat
 https://spring.io/guides
 
 ### 1.5 Document Overview
-Describe what the rest of the document contains and how it is organized.
+Section 1 is a general introduction to the document, intended for any readers. Section 2 is focused on the product and its features. This section is for customers and business stakeholders. Section 3 specifies the requirements and constraints for the product and development process. This section is intended for all stakeholders, especially the development team.
 
 ## 2. Product Overview
-> Class Connect is a simple, comprehensive, easy to use web app with the goal of providing classes to students in various fields. Students and teachers make use of the centralized platform to meet their needs. Teachers create and publish classes, students sign up for any available classes that they are interested in.
+Class Connect is a simple, comprehensive, easy to use web app with the goal of providing classes to students in various fields. Students and teachers make use of the centralized platform to meet their needs. Teachers create and publish classes, students sign up for any available classes that they are interested in.
 
 ### 2.1 Product Functions
 Class Connect allows teachers create and customize the classes they offer. They can manage and moderate their students in an intuitive way. Students can look for and join any class of their choosing, and easily manage them from their dashboard.
