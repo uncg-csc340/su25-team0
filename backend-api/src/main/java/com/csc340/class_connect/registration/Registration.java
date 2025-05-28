@@ -1,9 +1,14 @@
 package com.csc340.class_connect.registration;
 
+import com.csc340.class_connect.course.Course;
+import com.csc340.class_connect.student.Student;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,21 +18,27 @@ public class Registration {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long registrationId;
-  private Long studentId;
-  private Long courseId;
+
+  @ManyToOne()
+  @JoinColumn(name = "student_id", nullable = false)
+  private Student student;
+
+  @ManyToOne()
+  @JoinColumn(name = "course_id", nullable = false)
+  private Course course;
 
   public Registration() {
   }
 
-  public Registration(Long registrationId, Long studentId, Long courseId) {
+  public Registration(Long registrationId, Student student, Course course) {
     this.registrationId = registrationId;
-    this.studentId = studentId;
-    this.courseId = courseId;
+    this.student = student;
+    this.course = course;
   }
 
-  public Registration(Long studentId, Long courseId) {
-    this.studentId = studentId;
-    this.courseId = courseId;
+  public Registration(Student student, Course course) {
+    this.student = student;
+    this.course = course;
   }
 
   public Long getRegistrationId() {
@@ -38,19 +49,19 @@ public class Registration {
     this.registrationId = registrationId;
   }
 
-  public Long getStudentId() {
-    return studentId;
+  public Student getStudent() {
+    return student;
   }
 
-  public void setStudentId(Long studentId) {
-    this.studentId = studentId;
+  public void setStudent(Student student) {
+    this.student = student;
   }
 
-  public Long getCourseId() {
-    return courseId;
+  public Course getCourse() {
+    return course;
   }
 
-  public void setCourseId(Long courseId) {
-    this.courseId = courseId;
+  public void setCourseId(Course course) {
+    this.course = course;
   }
 }

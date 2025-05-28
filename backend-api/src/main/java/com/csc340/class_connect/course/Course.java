@@ -1,9 +1,15 @@
 package com.csc340.class_connect.course;
 
+import com.csc340.class_connect.teacher.Teacher;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,10 +19,22 @@ public class Course {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long courseId;
+
+  @Column(nullable = false)
   private String courseName;
+
+  @Column(nullable = false)
   private String courseCode;
+
   private String description;
+
+  @Column(nullable = false)
   private int credits;
+
+  @ManyToOne()
+  @JoinColumn(name = "teacher_id", nullable = false)
+  @JsonBackReference
+  private Teacher teacher;
 
   public Course() {
   }
@@ -36,6 +54,23 @@ public class Course {
     this.credits = credits;
   }
 
+  public Course(Long courseId, String courseName, String courseCode, String description, int credits, Teacher teacher) {
+    this.courseId = courseId;
+    this.courseName = courseName;
+    this.courseCode = courseCode;
+    this.description = description;
+    this.credits = credits;
+    this.teacher = teacher;
+  }
+
+  public Course(String courseName, String courseCode, String description, int credits, Teacher teacher) {
+    this.courseName = courseName;
+    this.courseCode = courseCode;
+    this.description = description;
+    this.credits = credits;
+    this.teacher = teacher;
+  }
+
   public Long getCourseId() {
     return courseId;
   }
@@ -43,6 +78,14 @@ public class Course {
   public void setCourseId(Long courseId) {
     this.courseId = courseId;
   }
+
+  public Teacher getTeacher() {
+    return teacher;
+  }
+  public void setTeacher(Teacher teacher) {
+    this.teacher = teacher;
+  }
+
 
   public String getCourseName() {
     return courseName;

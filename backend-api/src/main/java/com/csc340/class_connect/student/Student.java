@@ -1,9 +1,15 @@
 package com.csc340.class_connect.student;
 
+import java.util.List;
+
+import com.csc340.class_connect.registration.Registration;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,10 +18,18 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
+
+     @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
     private String major;
     private double gpa;
+
+    @OneToMany(mappedBy = "student")
+    private List<Registration> registrations;
 
     public Student() {
     }
@@ -34,6 +48,31 @@ public class Student {
         this.major = major;
         this.gpa = gpa;
     }
+
+    public Student(Long studentId, String name, String email, String major, double gpa, List<Registration> registrations) {
+        this.studentId = studentId;
+        this.name = name;
+        this.email = email;
+        this.major = major;
+        this.gpa = gpa;
+        this.registrations = registrations;
+    }
+
+    public Student(String name, String email, String major, double gpa, List<Registration> registrations) {
+        this.name = name;
+        this.email = email;
+        this.major = major;
+        this.gpa = gpa;
+        this.registrations = registrations;
+    }
+
+    public List<Registration> getRegistrations() {
+        return registrations;
+    }
+    public void setRegistrations(List<Registration> registrations) {
+        this.registrations = registrations;
+    }
+
 
     public Long getStudentId() {
         return studentId;
