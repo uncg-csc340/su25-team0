@@ -1,0 +1,204 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Class Connect2",
+    "collectionId": "82d01629-23f3-465b-a8c2-536c941bb806",
+    "dateExported": "2025-05-28T05:58:30.318Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "1f8c21c9-4a76-4059-8c40-6b594d394c68",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "Get All Students",
+            "url": "http://localhost:8080/students",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-05-28T04:41:15.646Z",
+            "modified": "2025-05-28T05:18:31.474Z",
+            "headers": []
+        },
+        {
+            "_id": "976bd302-0d38-4108-81ef-3b13c091c085",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "Get Student by ID",
+            "url": "http://localhost:8080/students/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-05-28T04:43:54.207Z",
+            "modified": "2025-05-28T04:43:54.207Z",
+            "headers": []
+        },
+        {
+            "_id": "6eb222b1-3dff-4d56-9328-375e423ca361",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "Add new student",
+            "url": "http://localhost:8080/students",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-05-28T04:45:39.486Z",
+            "modified": "2025-05-28T04:45:39.486Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"name\":\"Alice Manning\",\r\n  \"email\":\"am@test.edu\",\r\n  \"major\":\"Mathematics\",\r\n  \"gpa\":3.44\r\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "7517c298-9b7d-48d9-805a-3c3972695eaf",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get all teachers",
+            "url": "http://localhost:8080/teachers",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2025-05-28T05:00:01.754Z",
+            "modified": "2025-05-28T05:00:01.754Z",
+            "headers": []
+        },
+        {
+            "_id": "0168323e-ad2f-42c4-8a08-c27986e8ec9e",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get teacher by id",
+            "url": "http://localhost:8080/teachers/1",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2025-05-28T05:00:48.859Z",
+            "modified": "2025-05-28T05:00:48.859Z",
+            "headers": []
+        },
+        {
+            "_id": "237d7d64-cb14-4c26-be92-81b60e6fe676",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "add new teacher",
+            "url": "http://localhost:8080/teachers",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-05-28T05:02:59.040Z",
+            "modified": "2025-05-28T05:02:59.040Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Molly Smith\",\n  \"email\": \"ms@test.edu\",\n  \"department\": \"Mathematics\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "019d199c-8c8e-4a95-9ec5-e0bc6e473c8c",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get all courses",
+            "url": "http://localhost:8080/courses",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2025-05-28T05:05:33.076Z",
+            "modified": "2025-05-28T05:05:33.076Z",
+            "headers": []
+        },
+        {
+            "_id": "8dd77574-2283-4846-84bb-7f758b3e1d3a",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get course by id",
+            "url": "http://localhost:8080/courses/1",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2025-05-28T05:06:05.671Z",
+            "modified": "2025-05-28T05:06:05.671Z",
+            "headers": []
+        },
+        {
+            "_id": "6d4c3cf7-f609-4089-9a88-d76bd564dde2",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "add new course",
+            "url": "http://localhost:8080/courses",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2025-05-28T05:07:00.064Z",
+            "modified": "2025-05-28T05:07:00.064Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"courseName\": \"Software Eng\",\n  \"courseCode\": \"CSC 340\",\n  \"description\": \"Software Engineering\",\n  \"credits\": 3,\n  \"teacher\": {\n    \"teacherId\": 2\n  }\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3ec50751-f593-4903-87bf-99b07fde450a",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get all registrations",
+            "url": "http://localhost:8080/registrations",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2025-05-28T05:10:48.646Z",
+            "modified": "2025-05-28T05:18:07.067Z",
+            "headers": []
+        },
+        {
+            "_id": "a89c399e-a65f-4024-8b81-32a1934bd9c3",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "add new registration",
+            "url": "http://localhost:8080/registrations",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2025-05-28T05:12:38.714Z",
+            "modified": "2025-05-28T05:42:43.678Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"student\": {\n      \"studentId\": 1\n    },\n    \"course\": {\n      \"courseId\": 1\n    }\n  }",
+                "form": []
+            }
+        },
+        {
+            "_id": "8d401cb3-ba7d-4ef3-8f4e-578f466bb530",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get courses by teacher id",
+            "url": "http://localhost:8080/courses/teacher/2",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2025-05-28T05:14:56.388Z",
+            "modified": "2025-05-28T05:17:53.845Z",
+            "headers": []
+        },
+        {
+            "_id": "ad6ec7be-3918-44aa-bf4c-7573d8aad73b",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get registrations by student id",
+            "url": "http://localhost:8080/registrations/student/1",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2025-05-28T05:17:06.833Z",
+            "modified": "2025-05-28T05:17:41.201Z",
+            "headers": []
+        },
+        {
+            "_id": "670a69d5-7cd4-4422-9421-d0b26d929211",
+            "colId": "82d01629-23f3-465b-a8c2-536c941bb806",
+            "containerId": "",
+            "name": "get teacher stats by id",
+            "url": "http://localhost:8080/teachers/stats/1",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2025-05-28T05:43:34.206Z",
+            "modified": "2025-05-28T05:43:34.206Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"studentId\": 1,\n   \"name\": \"John Doe\",\n   \"email\": \"jd@uncg.edu\",\n   \"major\": \"Computer Science\",\n   \"gpa\": 3.5\n }",
+                "form": []
+            }
+        }
+    ],
+    "ref": "aRcK7ya8w3r8_df47FvrRj37xW4CgYZlltgHfHCBlzuu2l8YdqH95r6O73SPMfDDfrVTNjSCu_zlWKtDHZA1RQ"
+}
