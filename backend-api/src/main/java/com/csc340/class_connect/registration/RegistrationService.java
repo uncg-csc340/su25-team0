@@ -1,5 +1,7 @@
 package com.csc340.class_connect.registration;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +46,7 @@ public class RegistrationService {
    * @param courseId The ID of the course to search for
    * @return List of registrations for the specified course
    */
-  public Object getRegistrationsByCourseId(Long courseId) {
+  public List<Registration> getRegistrationsByCourseId(Long courseId) {
     return registrationRepository.getRegistrationsByCourseId(courseId);
   }
 

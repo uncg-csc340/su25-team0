@@ -1,5 +1,7 @@
 package com.csc340.class_connect.course;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +72,7 @@ public class CourseService {
     return courseRepository.findAll();
   }
 
-  public Object getCoursesByTeacherId(Long teacherId) {
+  public List<Course> getCoursesByTeacherId(Long teacherId) {
     return courseRepository.getCoursesByTeacherId(teacherId);
   }
 
