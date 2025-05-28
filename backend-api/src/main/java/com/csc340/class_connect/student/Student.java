@@ -3,6 +3,7 @@ package com.csc340.class_connect.student;
 import java.util.List;
 
 import com.csc340.class_connect.registration.Registration;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,8 @@ public class Student {
     private double gpa;
 
     @OneToMany(mappedBy = "student")
+    // Using JsonIgnoreProperties to avoid circular references during serialization
+    @JsonIgnoreProperties("student")
     private List<Registration> registrations;
 
     public Student() {

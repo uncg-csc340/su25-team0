@@ -3,7 +3,7 @@ package com.csc340.class_connect.teacher;
 import java.util.List;
 
 import com.csc340.class_connect.course.Course;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +29,7 @@ public class Teacher {
   private String department;
 
   @OneToMany(mappedBy = "teacher")
-  @JsonManagedReference
+  @JsonIgnoreProperties("teacher")
   private List<Course> courses;
 
   public Teacher() {

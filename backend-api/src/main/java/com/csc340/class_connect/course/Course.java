@@ -1,7 +1,7 @@
 package com.csc340.class_connect.course;
 
 import com.csc340.class_connect.teacher.Teacher;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,7 +33,7 @@ public class Course {
 
   @ManyToOne()
   @JoinColumn(name = "teacher_id", nullable = false)
-  @JsonBackReference
+  @JsonIgnoreProperties("courses")
   private Teacher teacher;
 
   public Course() {

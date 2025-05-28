@@ -2,6 +2,7 @@ package com.csc340.class_connect.registration;
 
 import com.csc340.class_connect.course.Course;
 import com.csc340.class_connect.student.Student;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,10 +22,12 @@ public class Registration {
 
   @ManyToOne()
   @JoinColumn(name = "student_id", nullable = false)
+  @JsonIgnoreProperties("registrations")
   private Student student;
 
   @ManyToOne()
   @JoinColumn(name = "course_id", nullable = false)
+  @JsonIgnoreProperties("teacher")
   private Course course;
 
   public Registration() {

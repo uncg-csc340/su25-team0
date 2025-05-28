@@ -44,28 +44,14 @@ public class CourseController {
    * @return List of courses with the specified name
    */
   @GetMapping("/courses/name")
-  public Object getCoursesByName(@RequestParam String name) {
-    if (name != null) {
-      return courseService.getCoursesByName(name);
+  public Object getCoursesByName(@RequestParam String key) {
+    if (key != null) {
+      return courseService.getCoursesByName(key);
     } else {
       return courseService.getAllCourses();
     }
   }
 
-  /**
-   * Endpoint to get courses by department
-   *
-   * @param department The department to search for
-   * @return List of courses with the specified department
-   */
-  @GetMapping("/courses/department")
-  public Object getCoursesByDepartment(@RequestParam String department) {
-    if (department != null) {
-      return courseService.getCoursesByDepartment(department);
-    } else {
-      return courseService.getAllCourses();
-    }
-  }
 
   /**
    * Endpoint to add a new course

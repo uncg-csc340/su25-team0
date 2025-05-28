@@ -35,18 +35,9 @@ public class CourseService {
    * @return List of courses with the specified name
    */
   public Object getCoursesByName(String name) {
-    return courseRepository.getCoursesByName(name);
+    return courseRepository.getCoursesByCourseName(name);
   }
 
-  /**
-   * Method to get courses by department
-   *
-   * @param department The department to search for
-   * @return List of courses with the specified department
-   */
-  public Object getCoursesByDepartment(String department) {
-    return courseRepository.getCoursesByDepartment(department);
-  }
 
   /**
    * Method to add a new course
