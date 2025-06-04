@@ -147,33 +147,17 @@
         <h4 style="margin-bottom: 0.3rem; color: #2d5be3; font-size: 1.08rem; font-weight: 600;">My Classes</h4>
         <p style="margin-top: 0; color: #555; font-size: 0.98rem;">Manage your classes and students efficiently.</p>
         <div class="class-list">
-            <div class="class-card">
-                <h2>Biology 101</h2>
-                <p>Section A | 25 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
-                </div>
-            </div>
-            <div class="class-card">
-                <h2>Chemistry 201</h2>
-                <p>Section B | 18 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
-                </div>
-            </div>
-            <div class="class-card">
-                <h2>Physics 301</h2>
-                <p>Section C | 22 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
-                </div>
-            </div>
+            <#list dashboardInfo.courses as item>
+                <div class="class-card">
+                    <h2>${item.courseName}</h2>
+                    <p>${item.courseCode}</p>
+                    <div class="class-actions">
+                        <button onclick="window.location.href='/teachers/class-details/${item.courseId}'">View</button>
+                        <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
+                        <button onclick="confirm('Delete Class?')">Delete</button>
+                    </div>
+                </div>                
+            </#list>
         </div>
     </div>
 </body>
