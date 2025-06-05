@@ -11,19 +11,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.csc340.class_connect.course.CourseService;
+import com.csc340.class_connect.registration.Registration;
+import com.csc340.class_connect.registration.RegistrationService;
+
 @Controller
 public class TeacherController {
 
   @Autowired
   private TeacherService teacherService;
 
+  @Autowired
+  private CourseService courseService;
+
+  @Autowired
+  private RegistrationService registrationService;
 
   @GetMapping("/teachers/dashboard/{teacherId}")
   public Object getTeacherDashBoard(@PathVariable long teacherId, Model model) {
-    
+
     model.addAttribute("dashboardInfo", teacherService.getTeacherDashBoard(teacherId));
     model.addAttribute("teacher", teacherService.getTeacherById(teacherId));
-    return "teacher-dashboard";
+    return "teacher/teacher-dashboard";
+  }
+
+  @GetMapping("/teachers/class-details/{courseId}")
+  public Object getTeacherClassDetails(@PathVariable long courseId, Model model) {
+    model.addAttribute("course", courseService.getCourseById(courseId));
+    model.addAttribute("registrations", registrationService.getRegistrationsByCourseId(courseId));
+    return "teacher/teacher-class-details";
+
   }
 
   /**
@@ -43,8 +60,12 @@ public class TeacherController {
    * @return The teacher with the specified ID
    */
   @GetMapping("/teachers/{id}")
-  public Teacher getTeacherById(@PathVariable Long id) {
-    return teacherService.getTeacherById(id);
+  public Object getTeacherById(@PathVariable Long id, Model model) {
+    model.addAttribute("teacher", teacherService.getTeacherById(id));
+    model.addAttribute("courses", courseService.getCoursesByTeacherId(id));
+    model.addAttribute("stats", teacherService.getStatsByTeacherId(id));
+
+    return "teacher/teacher-profile";
   }
 
   /**
@@ -73,6 +94,12 @@ public class TeacherController {
     return teacherService.getTeachersByDepartment(department);
   }
 
+  @GetMapping("/teachers/create")
+  public Object showTeacherCreateForm(Model model) {
+    model.addAttribute("teacher", new Teacher());
+    return "teacher/teacher-create";
+  }
+
   /**
    * Endpoint to add a new teacher
    *
@@ -80,8 +107,21 @@ public class TeacherController {
    * @return List of all teachers
    */
   @PostMapping("/teachers")
-  public Object addTeacher(@RequestBody Teacher teacher) {
+  public Object addTeacher(Teacher teacher) {
     return teacherService.addTeacher(teacher);
+  }
+
+  /**
+   * Endpoint to show the teacher update form
+   *
+   * @param id    The ID of the teacher to update
+   * @param model The model to add attributes to
+   * @return The view name for the teacher update form
+   */
+  @GetMapping("/teachers/update/{id}")
+  public Object showTeacherUpdateForm(@PathVariable Long id, Model model) {
+    model.addAttribute("teacher", teacherService.getTeacherById(id));
+    return "teacher/teacher-update-profile";
   }
 
   /**
@@ -90,9 +130,10 @@ public class TeacherController {
    * @param teacher The teacher to update
    * @return List of all teachers
    */
-  @PutMapping("/teachers")
-  public Object updateTeacher(@RequestBody Teacher teacher) {
-    return teacherService.updateTeacher(teacher);
+  @PostMapping("/teachers/update/{id}")
+  public Object updateTeacher(@PathVariable long id, Teacher teacher) {
+    teacherService.updateTeacher(teacher);
+    return "redirect:/teachers/" + id;
   }
 
   /**

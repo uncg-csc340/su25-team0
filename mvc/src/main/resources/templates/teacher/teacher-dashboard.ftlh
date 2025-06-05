@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Class Connect - Teacher Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -135,45 +137,31 @@
     <header>
         <div class="logo">Class Connect</div>
         <nav>
-            <a href="teacher-dashboard.html">Dashboard</a>
+            <a href="/teachers/dashboard/${teacher.teacherId}">Dashboard</a>
             <a href="#">Reports</a>
-            <a href="teacher-profile.html">Profile</a>
+            <a href="/teachers/${teacher.teacherId}">Profile</a>
             <a href="index.html">Logout</a>
         </nav>
     </header>
     <div class="container">
         <h1>Welcome, ${teacher.name}</h1>
-        <button class="add-class-btn" onclick="window.location.href='teacher-edit-class.html'">+ Add New Class</button>
+        <button class="add-class-btn" onclick="window.location.href='/courses/add/${teacher.teacherId}'">+ Add New Class</button>
         <h4 style="margin-bottom: 0.3rem; color: #2d5be3; font-size: 1.08rem; font-weight: 600;">My Classes</h4>
         <p style="margin-top: 0; color: #555; font-size: 0.98rem;">Manage your classes and students efficiently.</p>
         <div class="class-list">
-            <div class="class-card">
-                <h2>Biology 101</h2>
-                <p>Section A | 25 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
+            <#list dashboardInfo.courses as item>
+                <div class="class-card">
+                    <h2>${item.courseName}</h2>
+                    <p>${item.courseCode}</p>
+                    <div class="class-actions">
+                        <button onclick="window.location.href='/teachers/class-details/${item.courseId}'">View</button>
+                        <button onclick="window.location.href='/courses/update/${item.courseId}'">Edit</button>
+                        <a href="/courses/delete/${item.courseId}" class="btn btn-danger " role="button"
+                            onclick="return confirm('Are you sure?')">Delete</a>
+
+                    </div>
                 </div>
-            </div>
-            <div class="class-card">
-                <h2>Chemistry 201</h2>
-                <p>Section B | 18 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
-                </div>
-            </div>
-            <div class="class-card">
-                <h2>Physics 301</h2>
-                <p>Section C | 22 Students</p>
-                <div class="class-actions">
-                    <button onclick="window.location.href='teacher-class-details.html'">View</button>
-                    <button onclick="window.location.href='teacher-edit-class.html'">Edit</button>
-                    <button onclick="confirm('Delete Class?')">Delete</button>
-                </div>
-            </div>
+            </#list>
         </div>
     </div>
 </body>

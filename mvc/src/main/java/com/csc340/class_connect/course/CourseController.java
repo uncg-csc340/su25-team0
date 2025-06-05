@@ -2,6 +2,7 @@ package com.csc340.class_connect.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
 public class CourseController {
 
@@ -51,6 +53,17 @@ public class CourseController {
     }
   }
 
+  @GetMapping("/courses/add/{teacherId}")
+  public Object showCourseAddForm(@PathVariable Long teacherId, Model model) {
+    model.addAttribute("course", new Course());
+    model.addAttribute("teacherId", teacherId);
+    return "teacher/teacher-add-class";
+  }
+
+  public Object showCourseAddForm(Model model) {
+    model.addAttribute("course", new Course());
+    return "teacher/teacher-add-class";
+  }
 
   /**
    * Endpoint to add a new course
@@ -59,8 +72,15 @@ public class CourseController {
    * @return List of all courses
    */
   @PostMapping("/courses")
-  public Object addCourse(@RequestBody Course course) {
-    return courseService.addCourse(course);
+  public Object addCourse(Course course) {
+    courseService.addCourse(course);
+    return "redirect:/teachers/dashboard/" + course.getTeacher().getTeacherId();
+  }
+
+  @GetMapping("/courses/update/{courseId}")
+  public Object showCourseUpdateForm(@PathVariable Long courseId, Model model) {
+    model.addAttribute("course", courseService.getCourseById(courseId));
+    return "teacher/teacher-update-class";
   }
 
   /**
@@ -70,11 +90,11 @@ public class CourseController {
    * @param course   The updated course information
    * @return The updated course
    */
-  @PutMapping("/courses/{courseId}")
-  public Course updateCourse(@PathVariable Long courseId, @RequestBody Course course) {
+  @PostMapping("/courses/update/{courseId}")
+  public Object updateCourse(@PathVariable Long courseId, Course course) {
     course.setCourseId(courseId);
     courseService.updateCourse(course);
-    return courseService.getCourseById(courseId);
+    return "redirect:/teachers/class-details/" + courseId;
   }
 
   /**
@@ -82,9 +102,10 @@ public class CourseController {
    *
    * @param courseId The ID of the course to delete
    */
-  @DeleteMapping("/courses/{courseId}")
-  public void deleteCourse(@PathVariable Long courseId) {
+  @GetMapping("/courses/delete/{courseId}")
+  public Object deleteCourse(@PathVariable Long courseId) {
     courseService.deleteCourseById(courseId);
+    return "redirect:/teachers/dashboard/1";
   }
 
   /**
