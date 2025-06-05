@@ -39,6 +39,9 @@ public class Course {
   public Course() {
   }
 
+  public Course(Long courseId) {
+    this.courseId = courseId;
+  }
   public Course(Long courseId, String courseName, String courseCode, String description, int credits) {
     this.courseId = courseId;
     this.courseName = courseName;

@@ -64,7 +64,14 @@ public class Registration {
     return course;
   }
 
-  public void setCourseId(Course course) {
+  public void setCourse(Course course) {
     this.course = course;
   }
+
+  @Override
+  public String toString() {
+    return "Registration [registrationId=" + registrationId + ", student=" + student + ", course=" + course + "]";
+  }
+
+
 }

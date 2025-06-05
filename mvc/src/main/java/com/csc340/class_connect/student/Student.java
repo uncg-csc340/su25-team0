@@ -36,6 +36,9 @@ public class Student {
 
     public Student() {
     }
+    public Student(Long studentId) {
+        this.studentId = studentId;
+    }
 
     public Student(Long studentId, String name, String email, String major, double gpa) {
         this.studentId = studentId;

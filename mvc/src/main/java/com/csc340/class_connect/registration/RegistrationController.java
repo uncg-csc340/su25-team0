@@ -4,10 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.csc340.class_connect.course.Course;
+import com.csc340.class_connect.student.Student;
 
 @Controller
 public class RegistrationController {
@@ -65,8 +70,12 @@ public class RegistrationController {
    * @return List of all registrations
    */
   @PostMapping("/registrations")
-  public Object addRegistration(@RequestBody Registration registration) {
-    return registrationService.addRegistration(registration);
+  public Object addRegistration(@RequestParam Long studentId, @RequestParam Long courseId) {
+    Registration registration = new Registration();
+    registration.setStudent(new Student(studentId));
+    registration.setCourse(new Course(courseId));
+    registrationService.addRegistration(registration);
+    return "redirect:/students/dashboard/" + studentId;
   }
 
   /**
@@ -74,9 +83,11 @@ public class RegistrationController {
    *
    * @param id The ID of the registration to delete
    */
-  @DeleteMapping("/registrations/{id}")
-  public void deleteRegistration(@PathVariable Long id) {
-    registrationService.deleteRegistrationById(id);
+  @GetMapping("/registrations/delete/{id}")
+  public Object deleteRegistration(@PathVariable Long id) {
+    Student student = registrationService.getRegistrationById(id).getStudent();
+    // Redirect to the student's dashboard after deletion
+    return "redirect:/students/dashboard/" + student.getStudentId();
   }
 
   /**

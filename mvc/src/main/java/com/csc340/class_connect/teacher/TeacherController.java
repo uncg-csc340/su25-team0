@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.csc340.class_connect.course.CourseService;
-import com.csc340.class_connect.registration.Registration;
 import com.csc340.class_connect.registration.RegistrationService;
 
 @Controller
@@ -94,10 +91,10 @@ public class TeacherController {
     return teacherService.getTeachersByDepartment(department);
   }
 
-  @GetMapping("/teachers/create")
+  @GetMapping("/teachers/signup")
   public Object showTeacherCreateForm(Model model) {
     model.addAttribute("teacher", new Teacher());
-    return "teacher/teacher-create";
+    return "teacher/teacher-signup";
   }
 
   /**
@@ -108,7 +105,8 @@ public class TeacherController {
    */
   @PostMapping("/teachers")
   public Object addTeacher(Teacher teacher) {
-    return teacherService.addTeacher(teacher);
+    Teacher newTeacher = (Teacher) teacherService.addTeacher(teacher);
+    return "redirect:/teachers/dashboard/" + newTeacher.getTeacherId();
   }
 
   /**
