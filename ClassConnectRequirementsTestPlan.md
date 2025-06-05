@@ -23,7 +23,7 @@ P1 exits the app.
 
 #### 5. Customer - Modify profile:
 1. C1 logs in and modifies their profile.
-2. C1 searches for avialable classes by subject.
+2. C1 searches for available classes by subject.
 3. C1 views class S1 and the positive review.
 4. C1 registers to S1. C1 exits.
 
