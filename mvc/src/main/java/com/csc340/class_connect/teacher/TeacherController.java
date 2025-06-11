@@ -66,6 +66,32 @@ public class TeacherController {
   }
 
   /**
+   * Endpoint to show the teacher sign-in page
+   *
+   * @return The view name for the teacher sign-in page
+   */
+  @GetMapping("/teachers/signin")
+  public Object showSignInPage() {
+    return "teacher/teacher-signin";
+  }
+
+  /**
+   * Endpoint to get a teacher by email
+   *
+   * @param email The email of the teacher to retrieve
+   * @return The teacher with the specified email
+   */
+  @PostMapping("/teachers/signin")
+  public Object getTeacherByEmail(@RequestParam String email, Model model) {
+    Teacher teacher = teacherService.getTeacherByEmail(email);
+    if (teacher == null) {
+      return "redirect:/teachers/signin?username_not_found";
+    }
+    model.addAttribute("teacher", teacherService.getTeacherByEmail(email));
+    return "redirect:/teachers/dashboard/" + teacher.getTeacherId();
+  }
+
+  /**
    * Endpoint to get teachers by name
    *
    * @param key The name of the teacher to search for

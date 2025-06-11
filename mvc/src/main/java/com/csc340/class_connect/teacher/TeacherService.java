@@ -42,6 +42,16 @@ public class TeacherService {
   }
 
   /**
+   * Method to get a teacher by email
+   *
+   * @param email The email of the teacher to retrieve
+   * @return The teacher with the specified email, or null if not found
+   */
+  public Teacher getTeacherByEmail(String email) {
+    return teacherRepository.getTeacherByEmail(email).orElse(null);
+  }
+
+  /**
    * Method to get teachers by name
    *
    * @param name The name of the teacher to search for

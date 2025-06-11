@@ -1,6 +1,7 @@
 package com.csc340.class_connect.student;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,4 +17,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query(value = "select * from students s where s.name like %?1% ", nativeQuery = true)
     List<Student> getStudentsByName(String name);
+
+    Optional<Student> getStudentByEmail(String email);
 }

@@ -62,6 +62,28 @@ public class StudentController {
     return studentService.getStudentById(id);
   }
 
+  @GetMapping("/students/signin")
+  public Object showSignInPage() {
+    return "student/student-signin";
+  }
+
+  /**
+   * Endpoint to get a student by email
+   *
+   * @param email The email of the student to retrieve
+   * @return The student with the specified email, or redirect to sign-in page if
+   *         not found
+   */
+  @PostMapping("/students/signin")
+  public Object getStudentByEmail(@RequestParam String email) {
+    Student student = studentService.getStudentByEmail(email);
+    if (student != null) {
+      return "redirect:/students/dashboard/" + student.getStudentId();
+    } else {
+      return "redirect:/student/signin ";
+    }
+  }
+
   /**
    * Endpoint to get students by name
    *

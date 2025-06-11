@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Service
 public class StudentService {
 
- @Autowired
+  @Autowired
   private StudentRepository studentRepository;
 
   /**
@@ -27,6 +27,16 @@ public class StudentService {
    */
   public Student getStudentById(@PathVariable long studentId) {
     return studentRepository.findById(studentId).orElse(null);
+  }
+
+  /**
+   * Method to get a student by email
+   *
+   * @param email The email of the student to retrieve
+   * @return The student with the specified email, or null if not found
+   */
+  public Student getStudentByEmail(String email) {
+    return studentRepository.getStudentByEmail(email).orElse(null);
   }
 
   /**
@@ -86,6 +96,5 @@ public class StudentService {
   public void deleteStudent(Long studentId) {
     studentRepository.deleteById(studentId);
   }
-
 
 }

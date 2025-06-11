@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Teacher Profile | Class Connect</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -127,21 +125,22 @@
 </head>
 
 <body>
-     <header>
-        <div class="logo">Class Connect</div>
-        <nav>
-            <a href="/teachers/dashboard/${teacher.teacherId}">Dashboard</a>
-            <a href="#">Reports</a>
-            <a href="/teachers/${teacher.teacherId}">Profile</a>
-            <a href="index.html">Logout</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo"><a href="/courses">Class Connect</a></div>
+    <nav>
+      <a href="/students/dashboard/${student.studentId}">Dashboard</a>
+      <a href="#">Assignments</a>
+      <a href="/students/${student.studentId}">Profile</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
   <div class="profile-header">
-    <img src="https://ui-avatars.com/api/?name=${teacher.name?replace('\\s+', '+')}&background=2d6cdf&color=fff&size=120" alt="Profile Picture"
-      class="profile-pic">
-    <h1>${teacher.name}</h1>
-    <p>${teacher.department}</p>
-    <button onclick="location.href='/teachers/update/${teacher.teacherId}'"
+    <img
+      src="https://ui-avatars.com/api/?name=${teacher.name?replace('\\s+', '+')}&background=2d6cdf&color=fff&size=120"
+      alt="Profile Picture" class="profile-pic">
+    <h1>${student.name}</h1>
+    <p>${student.major} | Class Connect</p>
+    <button onclick="location.href='/students/update/${student.studentId}'"
       style="margin-top:1rem; background:#fff; color:#2d6cdf; border:none; border-radius:4px; padding:0.5rem 1.2rem; font-size:1rem; cursor:pointer; box-shadow:0 1px 3px rgba(0,0,0,0.07);">
       Edit Profile
     </button>
@@ -151,28 +150,24 @@
     <div class="stats">
       <div class="stat">
         <h2>${stats.courseCount}</h2>
-        <p>Active Classes</p>
+        <p>Enrolled Classes</p>
       </div>
       <div class="stat">
-        <h2>${stats.registrationCount}</h2>
-        <p>Total Students</p>
+        <h2>${stats.creditCount}</h2>
+        <p>Total Credits Earned</p>
       </div>
-    </div>
-    <div class="bio">
-      <h3>About</h3>
-      <p>
-        Passionate educator with 10+ years of experience teaching high school mathematics. Dedicated to helping students
-        succeed and fostering a love for learning.
-      </p>
+      <div class="stat">
+        <h2>${student.gpa}</h2>
+        <p>GPA</p>
+      </div>
     </div>
     <div class="classes-list">
       <h3>Current Classes</h3>
-       <#list courses as item>
-      <a href="/teachers/class-details/${item.courseId}" class="class-item"
-        style="display:block; text-decoration:none; color:inherit;">
-        <strong>${item.courseCode}</strong> &mdash;
-        <strong>${item.courseName}</strong>
-      </a>
+      <#list registrations as registration>
+        <a href="/students/${student.studentId}/class/${registration.registrationId}" class="class-item"
+          style="display:block; text-decoration:none; color:inherit;">
+          <strong>${registration.course.courseName}</strong>
+        </a>
       </#list>
     </div>
   </div>

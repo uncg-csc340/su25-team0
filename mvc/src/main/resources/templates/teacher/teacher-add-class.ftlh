@@ -105,9 +105,6 @@
 
       <label for="credits">Credits</label>
       <input type="number" id="credits" name="credits" vplaceholder="Enter Course Credits">
-
-      <button class="btn btn-danger"
-        onclick="window.location.href='/teachers/dashboard/${teacherId}'">Cancel</button>
       <button type="submit">Save Changes</button>
     </form>
   </div>

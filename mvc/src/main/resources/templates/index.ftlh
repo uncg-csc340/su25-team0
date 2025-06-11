@@ -22,6 +22,8 @@
       Class Connect is your all-in-one platform to foster collaboration, streamline communication, and enhance learning
       experiences for teachers and students. Join us to make classroom connections easier than ever!
     </p>
+    <a href="/teachers/signin" class="cta-btn">Get Started as a Teacher!</a>
+    <a href="/students/signin" class="cta-btn">Get Started as a Student!</a>
   </div>
   <section class="highlights">
     <h2>Featured Classes</h2>
@@ -31,7 +33,6 @@
           <h3>${course.courseName}</h3>
           <p>${course.description}</p>
           <span class="teacher">${course.teacher.name}</span>
-          <a href="/courses/${course.courseId}" class="btn btn-primary" role="button">Details</a>
         </div>
         <hr>
     </div>

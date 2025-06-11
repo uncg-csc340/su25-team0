@@ -90,7 +90,7 @@
         <nav>
             <a href="/students/dashboard/${student.studentId}">Dashboard</a>
             <a href="#">Assignments</a>
-            <a href="/students/profile/${student.studentId}">Profile</a>
+            <a href="/students/${student.studentId}">Profile</a>
             <a href="index.html">Logout</a>
         </nav>
     </header>
